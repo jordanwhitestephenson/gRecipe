@@ -11,7 +11,7 @@ function ingredientRoute() {
 router.post('/', function(req, res){
   ingredientRoute().insert({
     name: req.body.name
-  }, 'id').then(function(result){
+  }, ['id', 'name']).then(function(result){
     res.json(result);
   });
 });

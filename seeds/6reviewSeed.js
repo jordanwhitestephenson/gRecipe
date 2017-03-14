@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         user_id: knex('user').where('email','rumplebuttom@aol.com').select('id')},
 
         {body: 'Almond SWIRL got me SWIRLIN man!', rating: '5',
-        recipe_id: knex('recipe').where('title','3 Almond Swirled Oatmeal').select('id'),
+        recipe_id: knex('recipe').where('title','Almond Swirled Oatmeal').select('id'),
         user_id: knex('user').where('email','sandwichesRmyThing.yahoo.com').select('id')},
 
         {body: 'Eggs, get your eggs here!Fresh and white eggs are here!!!Wiggle jiggle, yellow middle,thats the best of what you are. White and tender, surrond the center,cozy sitting in a crackling shell.', rating: '5',

@@ -13,7 +13,7 @@ router.post('/', function(req, res){
       body: req.body.body,
       stepNumber: req.body.stepNumber
     // email: req.body.email,
-  }, 'id').then(function(result){
+  }, ['id', 'body', 'stepNumber']).then(function(result){
     res.json(result);
   });
 });

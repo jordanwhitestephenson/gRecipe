@@ -12,7 +12,7 @@ router.post('/', function(req, res){
   userRoute().insert({
     name: req.body.name,
     email: req.body.email,
-  }, 'id').then(function(result){
+  }, ['id','name', 'email']).then(function(result){
     res.json(result);
   });
 });
