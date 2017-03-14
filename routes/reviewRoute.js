@@ -13,7 +13,9 @@ function reviewRoute() {
 //recipe POST//
 router.post('/', function(req, res){
   reviewRoute().insert({
-    // name: req.body.name,
+    body: req.body.name,
+    rating: req.body.rating,
+    created_at: req.body.created_at,
     // email: req.body.email,
   }, 'id').then(function(result){
     res.json(result);
@@ -37,7 +39,8 @@ router.get('/:id', function(req, res){
 //recipe UPDATE//
 router.put('/:id', function(req, res){
   reviewRoute().where('id', req.params.id).update({
-    stars: req.body.stars
+    body: req.body.name,
+    rating: req.body.rating
   }).then(function(result){
     res.json(result);
   });

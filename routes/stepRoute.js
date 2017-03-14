@@ -10,7 +10,8 @@ function stepRoute() {
 //step POST//
 router.post('/', function(req, res){
   stepRoute().insert({
-    // name: req.body.name,
+      body: req.body.body,
+      stepNumber: req.body.stepNumber
     // email: req.body.email,
   }, 'id').then(function(result){
     res.json(result);
@@ -34,7 +35,8 @@ router.get('/:id', function(req, res){
 //step UPDATE//
 router.put('/:id', function(req, res){
   stepRoute().where('id', req.params.id).update({
-    stars: req.body.stars
+    body: req.body.body,
+    stepNumber: req.body.stepNumber
   }).then(function(result){
     res.json(result);
   });

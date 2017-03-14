@@ -10,7 +10,9 @@ function recipeRoute() {
 //recipe POST//
 router.post('/', function(req, res){
   recipeRoute().insert({
-    // name: req.body.name,
+    title: req.body.name,
+    body: req.body.body,
+    image: req.body.image
     // email: req.body.email,
   }, 'id').then(function(result){
     res.json(result);
@@ -34,7 +36,9 @@ router.get('/:id', function(req, res){
 //recipe UPDATE//
 router.put('/:id', function(req, res){
   recipeRoute().where('id', req.params.id).update({
-    stars: req.body.stars
+    title: req.body.name,
+    body: req.body.body,
+    image: req.body.image
   }).then(function(result){
     res.json(result);
   });

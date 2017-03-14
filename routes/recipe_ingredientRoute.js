@@ -10,8 +10,8 @@ function recipe_ingredientRoute() {
 //recipe_ingredient POST//
 router.post('/', function(req, res){
   recipe_ingredientRoute().insert({
-    // name: req.body.name,
-    // email: req.body.email,
+    quantity: req.body.quantity,
+    unit: req.body.unit,
   }, 'id').then(function(result){
     res.json(result);
   });
@@ -34,7 +34,8 @@ router.get('/:id', function(req, res){
 //recipe_ingredient UPDATE//
 router.put('/:id', function(req, res){
   recipe_ingredientRoute().where('id', req.params.id).update({
-    stars: req.body.stars
+    quantity: req.body.quantity,
+    unit: req.body.unit,
   }).then(function(result){
     res.json(result);
   });

@@ -10,8 +10,8 @@ function userRoute() {
 //user POST//
 router.post('/', function(req, res){
   userRoute().insert({
-    // name: req.body.name,
-    // email: req.body.email,
+    name: req.body.name,
+    email: req.body.email,
   }, 'id').then(function(result){
     res.json(result);
   });
@@ -34,7 +34,8 @@ router.get('/:id', function(req, res){
 //user UPDATE//
 router.put('/:id', function(req, res){
   userRoute().where('id', req.params.id).update({
-    stars: req.body.stars
+    name: req.body.name,
+    email: req.body.email,
   }).then(function(result){
     res.json(result);
   });
