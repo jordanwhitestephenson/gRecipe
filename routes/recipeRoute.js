@@ -10,11 +10,11 @@ function recipeRoute() {
 //recipe POST//
 router.post('/', function(req, res){
   recipeRoute().insert({
-    title: req.body.name,
+    title: req.body.title,
     body: req.body.body,
     image: req.body.image
     // email: req.body.email,
-  }, ['title', 'body', 'image', 'id']).then(function(result){
+  }, ['title', 'body', 'image'] ).then(function(result){
     res.json(result);
   });
 });
