@@ -17,7 +17,7 @@ router.post('/', function(req, res){
     rating: req.body.rating,
     created_at: req.body.created_at,
     // email: req.body.email,
-  }, 'id').then(function(result){
+  }, ['body', 'rating', 'created_at', 'id']).then(function(result){
     res.json(result);
   });
 });

@@ -14,7 +14,7 @@ router.post('/', function(req, res){
     body: req.body.body,
     image: req.body.image
     // email: req.body.email,
-  }, 'id').then(function(result){
+  }, ['title', 'body', 'image', 'id']).then(function(result){
     res.json(result);
   });
 });

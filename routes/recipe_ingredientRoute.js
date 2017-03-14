@@ -12,7 +12,7 @@ router.post('/', function(req, res){
   recipe_ingredientRoute().insert({
     quantity: req.body.quantity,
     unit: req.body.unit,
-  }, 'id').then(function(result){
+  }, ['quantity', 'unit','id']).then(function(result){
     res.json(result);
   });
 });
