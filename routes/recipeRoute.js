@@ -36,7 +36,7 @@ router.get('/:id', function(req, res){
 //recipe UPDATE//
 router.put('/:id', function(req, res){
   recipeRoute().where('id', req.params.id).update({
-    title: req.body.name,
+    title: req.body.title,
     body: req.body.body,
     image: req.body.image
   }).then(function(result){
