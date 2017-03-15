@@ -19,7 +19,7 @@ router.post('/', function(req, res){
 
   userRoute().insert({
     email: req.body.email
-  }, ['id']).then(function(result){
+  }, ['email','id']).then(function(result){
     res.json(result)
   });
 
