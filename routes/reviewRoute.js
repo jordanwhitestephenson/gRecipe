@@ -19,7 +19,9 @@ router.post('/', function(req, res){
 
   userRoute().insert({
     email: req.body.email
-  }, ['id'])
+  }, ['id']).then(function(result){
+    res.json(result)
+  });
 
   reviewRoute().insert({
     body: req.body.body,
