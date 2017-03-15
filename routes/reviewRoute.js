@@ -19,7 +19,7 @@ router.post('/', function(req, res){
 
   userRoute().insert({
     email: req.body.email
-  }, id)
+  }, ['id'])
 
   reviewRoute().insert({
     body: req.body.body,
