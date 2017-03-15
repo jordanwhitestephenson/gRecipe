@@ -48,7 +48,9 @@ router.put('/:id', function(req, res){
 //recipe DELETE//
 router.delete('/:id', function(req, res){
   recipeRoute().where('id', req.params.id).del().then(function(result){
-    res.json(result);
+    res.json(result)
+    console.log('DELETE SUCCES', id )
+  })
   });
 });
 
