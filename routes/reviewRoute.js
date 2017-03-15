@@ -18,7 +18,7 @@ router.post('/', function(req, res){
     created_at: req.body.created_at,
     recipe_id: req.body.recipe_id
     // email: req.body.email,
-  }, ['body', 'rating', 'created_at', 'id']).then(function(result){
+  }, ['body', 'rating', 'created_at', 'id', 'recipe_id']).then(function(result){
     res.json(result);
   });
 });
