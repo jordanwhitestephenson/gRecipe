@@ -9,16 +9,26 @@ const knex = require('../db/knex')
 function reviewRoute() {
   return knex('review');
 }
+function userRoute() {
+  return knex('user');
+}
+
 
 //review POST//
 router.post('/', function(req, res){
+
+  userRoute().insert({
+    email: req.body.email
+  }, id)
+
   reviewRoute().insert({
     body: req.body.body,
     rating: req.body.rating,
     created_at: req.body.created_at,
-    recipe_id: req.body.recipe_id
+    recipe_id: req.body.recipe_id,
+    user_id: knex('user').where('email','req.body.email').select('id')
     // email: req.body.email,
-  }, ['body', 'rating', 'created_at', 'id', 'recipe_id']).then(function(result){
+  }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result){
     res.json(result);
   });
 });
