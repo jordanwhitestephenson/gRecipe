@@ -19,7 +19,7 @@ router.post('/', function(req, res){
 
   userRoute().insert({
     email: req.body.email
-  }, ['email','id']).then(function(result){
+  }, ['email','id']).then(
     reviewRoute().insert({
       body: req.body.body,
       rating: req.body.rating,
@@ -30,8 +30,8 @@ router.post('/', function(req, res){
       // email: req.body.email,
     }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result){
       res.json(result);
-    });
-  });
+    })
+  );
 });
 
 //review GETALL//
