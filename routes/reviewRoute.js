@@ -31,7 +31,7 @@ router.post('/', function(req, res){
     email: req.body.email,
     user_id: knex('user').where('email','req.body.email').select('id')
     // email: req.body.email,
-  }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'email', 'user_id']).then(function(result){
+  }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result){
     res.json(result);
   });
 });
