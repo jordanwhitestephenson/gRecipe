@@ -16,6 +16,7 @@ router.post('/', function(req, res){
     body: req.body.body,
     rating: req.body.rating,
     created_at: req.body.created_at,
+    recipe_id: req.body.recipe_id
     // email: req.body.email,
   }, ['body', 'rating', 'created_at', 'id']).then(function(result){
     res.json(result);
