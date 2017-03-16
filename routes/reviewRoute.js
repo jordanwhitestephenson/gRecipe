@@ -15,21 +15,36 @@ function userRoute() {
 
 router.post('/', function(req, res) {
 
-    userRoute().insert({
-        email: req.body.email
-    }, ['email', 'id']).then(function(result) {
-        reviewRoute().insert({
-            body: req.body.body,
-            rating: req.body.rating,
-            created_at: req.body.created_at,
-            recipe_id: req.body.recipe_id,
-            user_id: knex('user').where('email', req.body.email).select('id')
-            // email: req.body.email,
-        }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result) {
-            res.json(result);
+var userID;
+userRoute().where('email', req.body.email).select('id').then(result => {
+  userID=result[0].id;
+  console.log(userID);
+  reviewRoute().insert({
+    body: req.body.body,
+    rating: req.body.rating,
+    created_at: req.body.created_at,
+    recipe_id: req.body.recipe_id,
+    user_id: knex('user').where('email', req.body.email).select('id')
+  }, ['body', 'rating', 'created_at', 'recipe_id', 'user_id'])
+  .then(function(result){
+    res.json(result);
+  });
+}).catch(result => {
+        userRoute().insert({
+            email: req.body.email
+        }, 'email', 'id').then(result => {
+            reviewRoute().insert({
+                body: req.body.body,
+                rating: req.body.rating,
+                created_at: req.body.created_at,
+                recipe_id: req.body.recipe_id,
+                user_id: knex('user').where('email', req.body.email).select('id')
+            }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result) {
+                res.json(result);
+            });
         });
-    });
-});
+    }); //<--closing catch statement
+}); //<---closing put statment//
 
 //review GETALL//
 router.get('/', function(req, res) {
