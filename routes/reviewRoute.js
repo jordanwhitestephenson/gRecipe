@@ -48,7 +48,7 @@ userRoute().where('email', req.body.email).select('id').then(result => {
 
 //review GETALL//
 router.get('/', function(req, res) {
-    reviewRoute().join('user', 'user.id' , '=','review.user_id' .select().select().then(function(result) {
+    reviewRoute().join('user', 'review.user_id', '=', 'user.id').select().select().then(function(result) {
         res.json(result);
     });
 });
