@@ -14,7 +14,7 @@ router.post('/', function(req, res){
       stepNumber: req.body.stepNumber,
       recipe_id: req.body.recipe_id
     // email: req.body.email,
-  }, ['id', 'body', 'stepNumber', 'req.body.recipe_id']).then(function(result){
+  }, ['id', 'body', 'stepNumber', 'recipe_id']).then(function(result){
     res.json(result);
   });
 });
