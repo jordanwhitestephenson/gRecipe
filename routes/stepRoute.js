@@ -45,8 +45,14 @@ router.put('/:id', function(req, res){
 
 //step DELETE//
 router.delete('/:id', function(req, res){
-  stepRoute().where('id', req.params.id).del().then(function(result){
-    res.json(result);
+  // console.log(req.body)
+  stepRoute().select('recipe_id', 'id', 'stepNumber').where('id', req.params.id).del()
+  .then(function(result){
+    console.log(result)
+    return knex('step').where('recipe_id', req.body.recipe_id).andWhere('stepNumber', '>', req.body.stepNumber).decrement('stepNumber', 1)})
+
+    .then(function(result){
+      res.json(result);
   });
 });
 
