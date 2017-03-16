@@ -19,7 +19,8 @@ router.post('/', function(req, res){
 
 //recipe_ingredient GETALL//
 router.get('/', function(req, res){
-  recipe_ingredientRoute().select().then(function(result){
+  knex('recipe_ingredient')
+  .join('ingredient', 'recipe_ingredient.ingredient_id', '=', 'ingredient.id').select().then(function(result){
     res.json(result);
   });
 });
