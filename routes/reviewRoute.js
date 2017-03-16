@@ -28,7 +28,6 @@ router.post('/', function(req, res){
       // email: req.body.email,
     }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result){
       res.json(result)
-      console.log('POST SUCESS')
     })
   });
 });
