@@ -53,7 +53,7 @@ router.get('/:id', function(req, res){
 //review UPDATE//
 router.put('/:id', function(req, res){
   reviewRoute().where('id', req.params.id).update({
-    body: req.body.name,
+    body: req.body.body,
     rating: req.body.rating
   }).then(function(result){
     res.json(result);
