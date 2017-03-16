@@ -35,6 +35,7 @@ router.get('/:id', function(req, res){
 
 //recipe UPDATE//
 router.put('/:id', function(req, res){
+console.log(req.body)
   recipeRoute().where('id', req.params.id).update({
     title: req.body.title,
     body: req.body.body,

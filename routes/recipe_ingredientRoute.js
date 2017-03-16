@@ -30,7 +30,11 @@ router.get('/:id', function(req, res){
     res.json(result);
   });
 });
-
+// router.get('/:id', function(req, res){
+//   recipe_ingredientRoute().where('ingredient_id', req.params.id).select('recipe_id').then(function(result){
+//     res.json(result);
+//   });
+// });
 //recipe_ingredient UPDATE//
 router.put('/:id', function(req, res){
   recipe_ingredientRoute().where('id', req.params.id).update({
