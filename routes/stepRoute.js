@@ -11,9 +11,10 @@ function stepRoute() {
 router.post('/', function(req, res){
   stepRoute().insert({
       body: req.body.body,
-      stepNumber: req.body.stepNumber
+      stepNumber: req.body.stepNumber,
+      recipe_id: req.body.recipe_id
     // email: req.body.email,
-  }, ['id', 'body', 'stepNumber']).then(function(result){
+  }, ['id', 'body', 'stepNumber', 'req.body.recipe_id']).then(function(result){
     res.json(result);
   });
 });
