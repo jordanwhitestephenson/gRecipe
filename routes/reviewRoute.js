@@ -13,8 +13,6 @@ function userRoute() {
   return knex('user');
 }
 
-
-//review POST//
 router.post('/', function(req, res){
 
   userRoute().insert({
@@ -26,13 +24,12 @@ router.post('/', function(req, res){
       rating: req.body.rating,
       created_at: req.body.created_at,
       recipe_id: req.body.recipe_id,
-      // email: req.body.email,
       user_id: knex('user').where('email', req.body.email).select('id')
       // email: req.body.email,
     }, ['body', 'rating', 'created_at', 'id', 'recipe_id', 'user_id']).then(function(result){
       res.json(result)
       console.log('POST SUCESS')
-    }).catch('POST UNSUCESSFUL')
+    })
   });
 });
 
